@@ -1,7 +1,7 @@
 import { Download, ImageIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { downloadBytes } from '@/lib/browser/download';
+import { saveImageBytes } from '@/lib/browser/download';
 import type { DecodeResult } from '@/lib/core/base64';
 import { mimeExtension } from '@/lib/core/mime';
 
@@ -13,7 +13,8 @@ interface ImgOutputPanelProps {
 export function ImgOutputPanel({ result }: ImgOutputPanelProps) {
   function handleDownload() {
     const ext = mimeExtension(result.mime);
-    downloadBytes(result.bytes, result.mime, `decoded.${ext}`);
+    // B站 App 内保存到系统相册，其他环境走浏览器下载
+    void saveImageBytes(result.bytes, result.mime, `decoded.${ext}`);
   }
 
   return (
