@@ -122,8 +122,7 @@ describe('decodeBase64', () => {
   });
 
   it('should tolerate whitespace and newlines in raw base64', () => {
-    const withBreaks =
-      RED_PNG.slice(0, 20) + '\n' + RED_PNG.slice(20, 40) + '\r\n' + RED_PNG.slice(40);
+    const withBreaks = `${RED_PNG.slice(0, 20)}\n${RED_PNG.slice(20, 40)}\r\n${RED_PNG.slice(40)}`;
     expect(decodeBase64(withBreaks).bytes).toEqual(decodeBase64(RED_PNG).bytes);
   });
 
