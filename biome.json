@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.10/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
   "assist": {
     "enabled": true,
     "actions": {
@@ -11,7 +11,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "correctness": {
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
@@ -45,6 +45,11 @@
       "enabled": true
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "files": {
     "includes": [
       "**",
@@ -52,7 +57,23 @@
       "!!**/dist",
       "!!**/coverage",
       "!!**/*.min.js",
-      "!!**/.husky"
+      "!!**/.husky",
+      "!!public/favicon.svg"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/components/ui/**"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noLabelWithoutControl": "off"
+          },
+          "suspicious": {
+            "noArrayIndexKey": "off"
+          }
+        }
+      }
+    }
+  ]
 }
