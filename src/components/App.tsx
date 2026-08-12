@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { DecodePanel } from '@/components/DecodePanel';
 import { type Direction, DirectionTabs } from '@/components/DirectionTabs';
 import { EncodePanel } from '@/components/EncodePanel';
+import { FollowCta } from '@/components/FollowCta';
 
 export function App() {
   const [direction, setDirection] = useState<Direction>('decode');
@@ -24,6 +25,8 @@ export function App() {
       </header>
 
       <DirectionTabs value={direction} onChange={setDirection} />
+
+      <FollowCta />
 
       {direction === 'decode' ? <DecodePanel /> : <EncodePanel />}
 

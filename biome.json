@@ -58,7 +58,9 @@
       "!!**/coverage",
       "!!**/*.min.js",
       "!!**/.husky",
-      "!!public/favicon.svg"
+      "!!public/favicon.svg",
+      "!!src/types",
+      "!!tmp"
     ]
   },
   "overrides": [
